@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous" defer></script>
+    <script src="../../src/pages/novo-pedido/retirada/index.js" type="module" defer></script>
+
+    <title>Retirada - Easy Carros</title>
+</head>
+<body>
+    RETIRADA
+
+    <!-- Formulário pedido -->
+    <form id="form-pedido">
+        <!-- TODO abrir modal com form de localização -->
+        <button type="button">Localização</button>
+
+        <section id="section-localizacao" hidden>
+            <input name="logradouro" type="text">
+            <input name="numero" type="text">
+            <input name="bairro" type="text">
+            <input name="cidade" type="text">
+            <input name="estado" type="text">
+            <input name="cep" type="text">
+            <input name="complemento" type="text">
+            <input name="pontoReferencia" type="text">
+        </section>
+
+        <!-- TODO abrir modal com form de agendamento -->
+        <button type="button">Agendamento</button>
+
+        <section id="section-agendamento" hidden>
+            <input name="agendamento" type="text">
+        </section>
+
+        <section id="section-tempo-aluguel">
+            <div class="input-wrapper">
+                <label>
+                    Dias:
+                    <input name="dias" type="number" value="0">
+                </label>
+            </div>
+                
+            <div class="input-wrapper">
+                <label>
+                    Horas:
+                    <input name="horas" type="number" value="0">
+                </label>
+            </div>
+        </section>
+
+        <section id="section-categoria-carro">
+            <label>
+                <input type="radio" name="categoria" value="A" required>
+                Categoria A
+            </label>
+
+            <label>
+                <input type="radio" name="categoria" value="B" required>
+                Categoria B
+            </label>
+
+            <label>
+                <input type="radio" name="categoria" value="C" required>
+                Categoria C 
+            </label>
+        </section>
+
+        <button type="submit">Ir para pagamento</button>
+    </form>
+    <!-- Fim formulário pedido -->
+</body>
+</html>
