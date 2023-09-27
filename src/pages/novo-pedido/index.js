@@ -1,2 +1,3 @@
-// TODO inicializar validações
-console.log('Tela de pedido');
+import { initValidacaoNovoPedido } from "./validar-form-novo-pedido.js";
+
+initValidacaoNovoPedido();

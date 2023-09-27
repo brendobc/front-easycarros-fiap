@@ -1,4 +1,4 @@
-import { Localizacao } from "./Localizacao";
+import { Localizacao } from "./Localizacao.js";
 
 class Unidade {
     id;

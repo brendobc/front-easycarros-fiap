@@ -1,5 +1,7 @@
-import { Unidade } from "./Unidade";
-import { Usuario } from "./Usuario";
+import { Localizacao } from "./Localizacao.js";
+import { Pagamento } from "./Pagamento.js";
+import { Unidade } from "./Unidade.js";
+import { Usuario } from "./Usuario.js";
 
 class Pedido {
     id;
@@ -33,6 +35,20 @@ class Pedido {
         this.previsaoHorasLocacao = previsaoHorasLocacao;
         this.usuario = usuario;
         this.status = status;
+    }
+
+    // TODO completar JSDoc
+    /**
+     * @returns {Pedido}
+     */
+    static criarInstanciaObjetosPreenchidos() {
+        const pedido = new Pedido();
+        pedido.unidade = new Unidade();
+        pedido.unidade.localizacao = new Localizacao(); // TODO abstrair
+        pedido.pagamento = new Pagamento();
+        pedido.usuario = new Usuario();
+
+        return pedido;
     }
 }
 
