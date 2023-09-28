@@ -24,7 +24,7 @@ class Pedido {
      * @param {Usuario} usuario usuario que alugou um carro
      * @param {Status} status 
      */
-    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao, usuario) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
         this.agencia = agencia;
         this.categoria = categoria;
@@ -33,7 +33,7 @@ class Pedido {
         this.agendamento = agendamento;
         this.previsaoDiasLocacao = previsaoDiasLocacao;
         this.usuario = usuario;
-        this.status = status;
+        this.status = Pedido.Status.EM_ANDAMENTO;
     }
 
     // TODO completar JSDoc
