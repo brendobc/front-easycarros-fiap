@@ -1,5 +1,4 @@
 import { Localizacao } from "./Localizacao.js";
-import { Pagamento } from "./Pagamento.js";
 import { Unidade } from "./Unidade.js";
 import { Usuario } from "./Usuario.js";
 
@@ -7,7 +6,8 @@ class Pedido {
     id;
     unidade;
     categoria;
-    pagamento;
+    valor;
+    modoPagamento;
     agendamento;
     previsaoInicioLocacao;
     previsaoHorasLocacao;
@@ -18,18 +18,20 @@ class Pedido {
      * @param {Number} id identificador
      * @param {Unidade} unidade unidade em que o pedido foi efetuado
      * @param {Categoria} categoria 
-     * @param {Pagamento} pagamento forma com que o usuário pagou pelo serviço de locação
+     * @param {Number} valor
+     * @param {ModoPagamento} modoPagamento
      * @param {Date} agendamento
      * @param {Date} previsaoInicioLocacao previsão do início da locação
      * @param {Number} previsaoHorasLocacao quantidade de horas previstas que o carro estará em uso
      * @param {Usuario} usuario usuario que alugou um carro
      * @param {Status} status 
      */
-    constructor(id, unidade, categoria, pagamento, agendamento, previsaoInicioLocacao, previsaoHorasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, unidade, categoria, valor, modoPagamento, agendamento, previsaoInicioLocacao, previsaoHorasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
         this.unidade = unidade;
         this.categoria = categoria;
-        this.pagamento = pagamento;
+        this.valor = valor;
+        this.modoPagamento = modoPagamento;
         this.agendamento = agendamento;
         this.previsaoInicioLocacao = previsaoInicioLocacao;
         this.previsaoHorasLocacao = previsaoHorasLocacao;
@@ -45,7 +47,6 @@ class Pedido {
         const pedido = new Pedido();
         pedido.unidade = new Unidade();
         pedido.unidade.localizacao = new Localizacao(); // TODO abstrair
-        pedido.pagamento = new Pagamento();
         pedido.usuario = new Usuario();
 
         return pedido;
@@ -60,6 +61,12 @@ class Pedido {
 Pedido.Categoria = {
     DELIVERY: 'DELIVERY',
     RETIRADA: 'RETIRADA'
+}
+
+/** @typedef {String} ModoPagamento */
+/** @property {ModoPagamento} CARTAO_CREDITO */
+Pedido.ModoPagamento = {
+    CARTAO_CREDITO: 'CARTAO_CREDITO'
 }
 
 /** @typedef {String} Status */
