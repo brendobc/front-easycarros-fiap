@@ -32,6 +32,18 @@ class Carro {
     }
 }
 
+/** @typedef {String} Categoria status que um carro pode possuir */
+/**
+ * @property {Categoria} A
+ * @property {Categoria} B
+ * @property {Categoria} C
+ */
+Carro.Categoria = {
+    A: 'A',
+    B: 'B',
+    C: 'C'
+}
+
 /** @typedef {String} Status status que um carro pode possuir */
 /**
  * @property {Status} DISPONIVEL
