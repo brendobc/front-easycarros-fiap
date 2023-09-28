@@ -4,6 +4,7 @@
  */
 
 import { Pedido } from "../model/Pedido.js";
+import { Usuario } from "../model/Usuario.js";
 
 const PEDIDO_KEY = 'pedido';
 
@@ -12,6 +13,7 @@ const PEDIDO_KEY = 'pedido';
  * @param {Pedido} pedido 
  */
 function salvarPedido(pedido) {
+    pedido.usuario = Usuario.getUsuarioMock();
     localStorage.setItem(PEDIDO_KEY, JSON.stringify(pedido));
 }
 

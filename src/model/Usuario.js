@@ -22,6 +22,10 @@ class Usuario {
         this.id = id;
         this.nome = nome;
     }
+
+    static getUsuarioMock() {
+        return new Usuario(1, 'Larissah Pentecostal');
+    }
 }
 
 export { Usuario }
