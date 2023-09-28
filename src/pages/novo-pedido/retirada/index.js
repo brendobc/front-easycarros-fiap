@@ -1,6 +1,6 @@
 import '../index.js';
-import { initFuncionalidadesModalEscolhaUnidade } from './escolha-de-unidade.js';
+import { initFuncionalidadesModalEscolhaAgencia } from './escolha-de-agencia.js';
 
 console.log('Teste tela retirada');
 
-initFuncionalidadesModalEscolhaUnidade();
+initFuncionalidadesModalEscolhaAgencia();

@@ -22,19 +22,33 @@
 
     <!-- Formulário pedido -->
     <form id="form-novo-pedido">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-selecionar-unidade">Selecionar Unidade</button>
+        <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-selecionar-agencia"
+            data-selecionar="agencia"
+        >
+            Selecionar agência
+        </button>
 
-        <section id="selection-unidade" hidden>
-            <input id="unidadeId" name="unidadeId" type="text">
+        <section id="selection-agencia" hidden>
+            <input id="agenciaId" name="agenciaId" type="hidden" required>
         </section>
 
-        <div id="unidade-selecionada-placeholder"></div>
+        <div id="agencia-selecionada-placeholder"></div>
 
         <!-- TODO abrir modal com form de agendamento -->
-        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-agendamento">Agendamento</button>
+        <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-agendamento"
+            data-selecionar="agendamento"
+        >
+            Agendamento
+        </button>
 
         <section id="section-agendamento" hidden>
-            <input id="agendamento" name="agendamento" type="text">
+            <input id="agendamento" name="agendamento" type="hidden" required>
         </section>
 
         <div id="agendamento-selecionado-placeholder"></div>
@@ -43,7 +57,7 @@
             <div class="input-wrapper">
                 <label>
                     Período da locação (dias):
-                    <input id="dias-locacao" name="dias" type="number" value="0">
+                    <input id="dias-locacao" name="dias" type="number" value="1" min="1" required>
                 </label>
             </div>
 
@@ -71,35 +85,35 @@
     </form>
     <!-- Fim formulário pedido -->
     
-    <!-- Modal selecionar unidade -->
-    <div class="modal fade" id="modal-selecionar-unidade" tabindex="-1" aria-labelledby="modal-selecionar-unidade" aria-hidden="true">
+    <!-- Modal selecionar agência -->
+    <div class="modal fade" id="modal-selecionar-agencia" tabindex="-1" aria-labelledby="modal-selecionar-agencia" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title">Selecione uma unidade</h5>
+            <h5 class="modal-title">Selecione uma agência</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div id="lista-unidades" class="modal-body">
+            <div id="lista-agencias" class="modal-body">
                 <label>
-                    <input name="seleciona-unidade" type="radio" value="1">
-                    Unidade 1
+                    <input name="selecionaAgencia" type="radio" value="1">
+                    Agência 1
                 </label>
                 <label>
-                    <input name="seleciona-unidade" type="radio" value="2">
-                    Unidade 2
+                    <input name="selecionaAgencia" type="radio" value="2">
+                    Agência 2
                 </label>
                 <label>
-                    <input name="seleciona-unidade" type="radio" value="3">
-                    Unidade 3
+                    <input name="selecionaAgencia" type="radio" value="3">
+                    Agência 3
                 </label>
                 <label>
-                    <input name="seleciona-unidade" type="radio" value="4">
-                    Unidade 4
+                    <input name="selecionaAgencia" type="radio" value="4">
+                    Agência 4
                 </label>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" id="btn-selecionar-unidade" class="btn btn-primary" data-bs-dismiss="modal">Selecionar</button>
+            <button type="button" id="btn-selecionar-agencia" class="btn btn-primary" data-bs-dismiss="modal">Selecionar</button>
             </div>
         </div>
         </div>

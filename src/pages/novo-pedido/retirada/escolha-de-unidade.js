@@ -1,18 +1,18 @@
-function initFuncionalidadesModalEscolhaUnidade() {
-    const btnSelecionarUnidade = document.getElementById('btn-selecionar-unidade');
-    btnSelecionarUnidade.addEventListener('click', function () {
-        const inputUnidadeSelecionada = document.querySelector('#lista-unidades input:checked')
-        console.log(inputUnidadeSelecionada)
-        if(!inputUnidadeSelecionada) {
+function initFuncionalidadesModalEscolhaAgencia() {
+    const btnSelecionarAgencia = document.getElementById('btn-selecionar-agencia');
+    btnSelecionarAgencia.addEventListener('click', function () {
+        const inputAgenciaSelecionada = document.querySelector('#lista-agencias input:checked')
+        console.log(inputAgenciaSelecionada)
+        if(!inputAgenciaSelecionada) {
             return ;
         }
-        const inputUnidadeId = document.getElementById('unidadeId');
-        const selecionarUnidadePlaceholder = document.getElementById('unidade-selecionada-placeholder')
+        const inputAgenciaId = document.getElementById('agenciaId');
+        const selecionarAgenciaPlaceholder = document.getElementById('agencia-selecionada-placeholder')
     
-        inputUnidadeId.value = inputUnidadeSelecionada.value;
+        inputAgenciaId.value = inputAgenciaSelecionada.value;
 
-        selecionarUnidadePlaceholder.innerText = inputUnidadeSelecionada.labels[0].innerText
+        selecionarAgenciaPlaceholder.innerText = inputAgenciaSelecionada.labels[0].innerText
     });
 }
 
-export { initFuncionalidadesModalEscolhaUnidade }
+export { initFuncionalidadesModalEscolhaAgencia }
