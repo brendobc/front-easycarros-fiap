@@ -1,4 +1,4 @@
-import { Unidade } from "./Unidade";
+import { Agencia } from "./Agencia.js";
 
 class Carro {
     id;
@@ -8,7 +8,7 @@ class Carro {
     cor;
     status;
     marca;
-    unidade;
+    agencia;
 
     /**
      * @param {Number} id identificador
@@ -18,9 +18,9 @@ class Carro {
      * @param {String} cor 
      * @param {Status} status 
      * @param {String} marca 
-     * @param {Unidade} unidade 
+     * @param {Agencia} agencia 
      */
-    constructor(id, placa, categoria, modelo, cor, status, marca, unidade) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, placa, categoria, modelo, cor, status, marca, agencia) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
         this.placa = placa;
         this.categoria = categoria;
@@ -28,8 +28,20 @@ class Carro {
         this.cor = cor;
         this.status = status;
         this.marca = marca;
-        this.unidade = unidade;
+        this.agencia = agencia;
     }
+}
+
+/** @typedef {String} Categoria status que um carro pode possuir */
+/**
+ * @property {Categoria} A
+ * @property {Categoria} B
+ * @property {Categoria} C
+ */
+Carro.Categoria = {
+    A: 'A',
+    B: 'B',
+    C: 'C'
 }
 
 /** @typedef {String} Status status que um carro pode possuir */
