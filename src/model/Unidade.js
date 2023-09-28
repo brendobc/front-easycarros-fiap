@@ -1,6 +1,6 @@
 import { Localizacao } from "./Localizacao.js";
 
-class Unidade {
+class Agencia {
     id;
     nome;
     localizacao;
@@ -9,7 +9,7 @@ class Unidade {
     /**
      * @param {Number} id identificador
      * @param {String} nome 
-     * @param {Localizacao} localizacao localização geográfica da unidade
+     * @param {Localizacao} localizacao localização geográfica da agência
      * @param {Status} status 
      */
     constructor(id, nome, localizacao, status) {
@@ -20,15 +20,15 @@ class Unidade {
     }
 }
 
-/** @typedef { String } Status status de uma unidade */
+/** @typedef { String } Status status de uma agência */
 /**
- * Possíveis status de uma unidade
+ * Possíveis status de uma agência
  * @property { Status } ATIVA
  * @property { Status } DESATIVADA
  */
-Unidade.Status = {
+Agencia.Status = {
     ATIVA: 'ATIVA',
     DESATIVADA: 'DESATIVADA'
 }
 
-export { Unidade }
+export { Agencia }

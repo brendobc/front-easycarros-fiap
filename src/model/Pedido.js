@@ -1,10 +1,10 @@
 import { Localizacao } from "./Localizacao.js";
-import { Unidade } from "./Unidade.js";
+import { Agencia } from "./Agencia.js";
 import { Usuario } from "./Usuario.js";
 
 class Pedido {
     id;
-    unidade;
+    agencia;
     categoria;
     valor;
     modoPagamento;
@@ -16,7 +16,7 @@ class Pedido {
 
     /**
      * @param {Number} id identificador
-     * @param {Unidade} unidade unidade em que o pedido foi efetuado
+     * @param {Agencia} agencia agencia em que o pedido foi efetuado
      * @param {Categoria} categoria 
      * @param {Number} valor
      * @param {ModoPagamento} modoPagamento
@@ -26,9 +26,9 @@ class Pedido {
      * @param {Usuario} usuario usuario que alugou um carro
      * @param {Status} status 
      */
-    constructor(id, unidade, categoria, valor, modoPagamento, agendamento, previsaoInicioLocacao, previsaoHorasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoInicioLocacao, previsaoHorasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
-        this.unidade = unidade;
+        this.agencia = agencia;
         this.categoria = categoria;
         this.valor = valor;
         this.modoPagamento = modoPagamento;
@@ -45,8 +45,8 @@ class Pedido {
      */
     static criarInstanciaObjetosPreenchidos() {
         const pedido = new Pedido();
-        pedido.unidade = new Unidade();
-        pedido.unidade.localizacao = new Localizacao(); // TODO abstrair
+        pedido.agencia = new Agencia();
+        pedido.agencia.localizacao = new Localizacao(); // TODO abstrair
         pedido.usuario = new Usuario();
 
         return pedido;
@@ -56,7 +56,7 @@ class Pedido {
 /** @typedef {String} Categoria */
 /**
  * @property {Categoria} DELIVERY modalidade de entrega de carros alugados em domicílio
- * @property {Categoria} RETIRADA modalidade de ir a uma unidade para alugar o carro
+ * @property {Categoria} RETIRADA modalidade de ir a uma agencia para alugar o carro
  */
 Pedido.Categoria = {
     DELIVERY: 'DELIVERY',
