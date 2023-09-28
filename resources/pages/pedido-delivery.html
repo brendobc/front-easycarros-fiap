@@ -25,19 +25,27 @@
         <!-- TODO abrir modal com form de localização -->
         <button type="button">Localização</button>
 
-        <section id="section-localizacao" hidden>
-            <input name="logradouro" type="text">
-            <input name="numero" type="text">
-            <input name="bairro" type="text">
-            <input name="cidade" type="text">
-            <input name="estado" type="text">
-            <input name="cep" type="text">
-            <input name="complemento" type="text">
-            <input name="pontoReferencia" type="text">
+        <section id="section-localizacao">
+            <label for="logradouro">Logradouro:</label>
+            <input id="logradouro"      name="logradouro" type="text">
+            <label for="numero">Numero:</label>
+            <input id="numero"          name="numero" type="text">
+            <label for="bairro">Bairro:</label>
+            <input id="bairro"          name="bairro" type="text">
+            <label for="cidade">Cidade:</label>
+            <input id="cidade"          name="cidade" type="text">
+            <label for="estado">Estado:</label>
+            <input id="estado"          name="estado" type="text">
+            <label for="cep">Cep:</label>
+            <input id="cep"             name="cep" type="text">
+            <label for="complemento">Complemento:</label>
+            <input id="complemento"     name="complemento" type="text">
+            <label for="pontoReferencia">Ponto de Refêrencia</label>
+            <input id="pontoReferencia" name="pontoReferencia" type="text">
         </section>
 
         <!-- TODO abrir modal com form de agendamento -->
-        <button type="button">Agendamento</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-agendamento">Agendamento</button>
 
         <section id="section-agendamento" hidden>
             <input name="agendamento" type="text">
@@ -79,5 +87,73 @@
         <button type="submit">Ir para pagamento</button>
     </form>
     <!-- Fim formulário pedido -->
+
+        <!-- Modal agendamento -->
+        <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Selecione um horário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="lista-agendamento" class="modal-body">
+                    <label>
+                        <input name="agendamento" type="radio" value="1">
+                        Agendamento 1
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="2">
+                        Agendamento 2
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="3">
+                        Agendamento 3
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="4">
+                        Agendamento 4
+                    </label>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" id="btn-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal agendamento -->
+        <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Selecione um horário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="lista-agendamento" class="modal-body">
+                    <label>
+                        <input name="agendamento" type="radio" value="1">
+                        Agendamento 1
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="2">
+                        Agendamento 2
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="3">
+                        Agendamento 3
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="4">
+                        Agendamento 4
+                    </label>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" id="btn-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
+                </div>
+            </div>
+            </div>
+        </div>
 </body>
 </html>
