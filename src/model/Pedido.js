@@ -9,7 +9,6 @@ class Pedido {
     valor;
     modoPagamento;
     agendamento;
-    previsaoInicioLocacao;
     previsaoDiasLocacao;
     usuario;
     status;
@@ -21,19 +20,17 @@ class Pedido {
      * @param {Number} valor
      * @param {ModoPagamento} modoPagamento
      * @param {Date} agendamento
-     * @param {Date} previsaoInicioLocacao previsão do início da locação
      * @param {Number} previsaoDiasLocacao quantidade de dias previstas que o carro estará em uso
      * @param {Usuario} usuario usuario que alugou um carro
      * @param {Status} status 
      */
-    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoInicioLocacao, previsaoDiasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao, usuario, status) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
         this.agencia = agencia;
         this.categoria = categoria;
         this.valor = valor;
         this.modoPagamento = modoPagamento;
         this.agendamento = agendamento;
-        this.previsaoInicioLocacao = previsaoInicioLocacao;
         this.previsaoDiasLocacao = previsaoDiasLocacao;
         this.usuario = usuario;
         this.status = status;
