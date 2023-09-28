@@ -22,19 +22,22 @@
 
     <!-- Formulário pedido -->
     <form id="form-novo-pedido">
-        <!-- TODO abrir modal com form de localização -->
-        <button type="button">Localização</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-selecionar-unidade">Selecionar Unidade</button>
 
-        <section id="section-unidade" hidden>
-            <input name="unidadeId" type="text">
+        <section id="selection-unidade" hidden>
+            <input id="unidadeId" name="unidadeId" type="text">
         </section>
+
+        <div id="unidade-selecionada-placeholder"></div>
 
         <!-- TODO abrir modal com form de agendamento -->
-        <button type="button">Agendamento</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-agendamento">Agendamento</button>
 
         <section id="section-agendamento" hidden>
-            <input name="agendamento" type="text">
+            <input id="agendamento" name="agendamento" type="text">
         </section>
+
+        <div id="agendamento-selecionado-placeholder"></div>
 
         <section id="section-tempo-aluguel">
             <div class="input-wrapper">
@@ -72,5 +75,74 @@
         <button type="submit">Ir para pagamento</button>
     </form>
     <!-- Fim formulário pedido -->
+    
+    <!-- Modal selecionar unidade -->
+    <div class="modal fade" id="modal-selecionar-unidade" tabindex="-1" aria-labelledby="modal-selecionar-unidade" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Selecione uma unidade</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="lista-unidades" class="modal-body">
+                <label>
+                    <input name="seleciona-unidade" type="radio" value="1">
+                    Unidade 1
+                </label>
+                <label>
+                    <input name="seleciona-unidade" type="radio" value="2">
+                    Unidade 2
+                </label>
+                <label>
+                    <input name="seleciona-unidade" type="radio" value="3">
+                    Unidade 3
+                </label>
+                <label>
+                    <input name="seleciona-unidade" type="radio" value="4">
+                    Unidade 4
+                </label>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" id="btn-selecionar-unidade" class="btn btn-primary" data-bs-dismiss="modal">Selecionar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal agendamento -->
+    <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Selecione um horário</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="lista-agendamento" class="modal-body">
+                <label>
+                    <input name="agendamento" type="radio" value="1">
+                    Agendamento 1
+                </label>
+                <label>
+                    <input name="agendamento" type="radio" value="2">
+                    Agendamento 2
+                </label>
+                <label>
+                    <input name="agendamento" type="radio" value="3">
+                    Agendamento 3
+                </label>
+                <label>
+                    <input name="agendamento" type="radio" value="4">
+                    Agendamento 4
+                </label>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" id="btn-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
 </body>
 </html>
