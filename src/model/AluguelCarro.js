@@ -5,7 +5,7 @@ class AluguelCarro {
     id;
     pedido;
     inicio;
-    previsaoHorasLocacao;
+    previsaoDiasLocacao;
     dataDevolucaoCarro;
     carro;
     status;
@@ -15,15 +15,15 @@ class AluguelCarro {
      * @param {Pedido} pedido pedido de locação referente ao aluguel de carro
      * @param {Carro} carro carro alugado
      * @param {Date} inicio início da locação
-     * @param {Number} previsaoHorasLocacao quantidade em horas previstas para o aluguel durar
+     * @param {Number} previsaoDiasLocacao quantidade em dias previstas para o aluguel durar
      * @param {Date} dataDevolucaoCarro 
      */
-    constructor(id, pedido, carro, inicio, previsaoHorasLocacao, dataDevolucaoCarro) {
+    constructor(id, pedido, carro, inicio, previsaoDiasLocacao, dataDevolucaoCarro) {
         this.id = id;
         this.pedido = pedido;
         this.carro = carro;
         this.inicio = inicio;
-        this.previsaoHorasLocacao = previsaoHorasLocacao;
+        this.previsaoDiasLocacao = previsaoDiasLocacao;
         this.dataDevolucaoCarro = dataDevolucaoCarro;
         this.status = AluguelCarro.Status.EM_VIGOR;
     }
