@@ -13,6 +13,9 @@ const PEDIDO_KEY = 'pedido';
  * @param {Pedido} pedido 
  */
 function salvarPedido(pedido) {
+    // Na POC, haverá apenas um pedido por vez.
+    // Não há necessidade de gerenciar ids de entidades
+    pedido.id = 1;
     pedido.usuario = Usuario.getUsuarioMock();
     localStorage.setItem(PEDIDO_KEY, JSON.stringify(pedido));
 }

@@ -15,38 +15,25 @@ class Pedido {
 
     /**
      * @param {Number} id identificador
+     * @param {Localizacao} localizacao endereço para realizar o delivery
      * @param {Agencia} agencia agencia em que o pedido foi efetuado
      * @param {Categoria} categoria 
      * @param {Number} valor
      * @param {ModoPagamento} modoPagamento
      * @param {Date} agendamento
      * @param {Number} previsaoDiasLocacao quantidade de dias previstas que o carro estará em uso
-     * @param {Usuario} usuario usuario que alugou um carro
      * @param {Status} status 
      */
-    constructor(id, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao, usuario) { // NOSONAR - todos os parâmetros são necessários
+    constructor(id, localizacao, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao) { // NOSONAR - todos os parâmetros são necessários
         this.id = id;
+        this.localizacao = localizacao;
         this.agencia = agencia;
         this.categoria = categoria;
         this.valor = valor;
         this.modoPagamento = modoPagamento;
         this.agendamento = agendamento;
         this.previsaoDiasLocacao = previsaoDiasLocacao;
-        this.usuario = usuario;
         this.status = Pedido.Status.EM_ANDAMENTO;
-    }
-
-    // TODO completar JSDoc
-    /**
-     * @returns {Pedido}
-     */
-    static criarInstanciaObjetosPreenchidos() {
-        const pedido = new Pedido();
-        pedido.agencia = new Agencia();
-        pedido.agencia.localizacao = new Localizacao(); // TODO abstrair
-        pedido.usuario = new Usuario();
-
-        return pedido;
     }
 }
 
