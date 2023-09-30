@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+    <script src="../../src/pages/global/index.js" type="module" defer></script>
+    <script src="../../src/pages/novo-pedido/delivery/index.js" type="module" defer></script>
+
+    <title>Delivery - Easy Carros</title>
+</head>
+
+<body>
+    <!-- Guia (tab) no início da página -->
+    <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="delivery-tab" data-bs-toggle="tab" href="#delivery" role="tab">Delivery</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="retirada-tab" data-bs-toggle="tab" href="#retirada" role="tab">Retirada</a>
+        </li>
+    </ul>
+
+    <!-- Conteúdo das tabs -->
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="delivery" role="tabpanel">
+            <!-- Conteúdo da tab Delivery -->
+            <form id="form-novo-pedido">
+                <section id="section-localizacao">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Logradouro</label>
+                            <input class="form-control" type="text" id="logradouro" name="logradouro" value="" required>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Número</label>
+                            <input class="form-control" type="text" id="numero" name="numero" value="" required>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Cidade</label>
+                            <input class="form-control" type="text" id="cidade" name="cidade" value="" required>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Bairro</label>
+                            <input class="form-control" type="text" id="bairro" name="bairro" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Estado</label>
+                            <input class="form-control" type="text" id="estado" name="estado" value="" required>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Bairro</label>
+                            <input class="form-control" type="text" id="cep" name="cep" value="" required>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Complemento</label>
+                            <input class="form-control" type="text" id="complemento" name="complemento" value=""
+                                required>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <label for="exampleInputPassword1">Ponto de Refêrencia</label>
+                            <input class="form-control" type="text" id="pontoReferencia" name="pontoReferencia" value=""
+                                required>
+                        </div>
+                    </div>
+
+                </section>
+
+                <br>
+
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-agendamento"
+                    data-selecionar="agendamento" class="btn btn-secondary">
+                    Agendamento
+                </button>
+
+                <section id="section-agendamento" hidden>
+                    <input id="agendamento" name="agendamento" type="text">
+                </section>
+                <br>
+                <div id="agendamento-selecionado-placeholder"></div>
+
+                <section id="section-tempo-aluguel">
+                    <div class="col-lg-3">
+                        <label for="exampleInputPassword1">Período da locação (dias):</label>
+                        <input class="form-control" type="number" id="dias-locacao" name="dias" value="1" min="1"
+                            required>
+                    </div>
+
+                    <div id="previsao-devolucao-placeholder"></div>
+                </section>
+
+                <section id="section-categoria-carro">
+                    <label>
+                        <input type="radio" name="categoria" value="A" required>
+                        Categoria A
+                    </label>
+
+                    <label>
+                        <input type="radio" name="categoria" value="B" required>
+                        Categoria B
+                    </label>
+
+                    <label>
+                        <input type="radio" name="categoria" value="C" required>
+                        Categoria C
+                    </label>
+                </section>
+                <br>
+                <button type="submit" id="botaoPagamento" class="btn btn-secondary">Ir para pagamento</button>
+            </form>
+        </div>
+
+        <div class="tab-pane fade" id="retirada" role="tabpanel">
+            <!-- Conteúdo da tab Retirada -->
+            <form id="form-novo-pedido-retirada">
+                <h2>Formulário de Retirada</h2>
+
+                <section id="selection-agencia" hidden>
+                    <input id="agenciaId" name="agenciaId" type="hidden">
+                </section>
+
+                <div id="agencia-selecionada-placeholder"></div>
+
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#modal-agendamento" data-selecionar="agendamento">
+                    Agendamento
+                </button>
+
+                <section id="section-agendamento" hidden>
+                    <input id="agendamento" name="agendamento" type="hidden">
+                </section>
+
+                <div id="agendamento-selecionado-placeholder"></div>
+
+                <section id="section-tempo-aluguel">
+                    <div class="col-lg-3">
+                        <label for="exampleInputPassword1">Período da locação (dias):</label>
+                        <input class="form-control" type="number" id="dias-locacao" name="dias" value="1" min="1"
+                            required>
+                    </div>
+
+                    <div id="previsao-devolucao-placeholder"></div>
+                </section>
+
+                <div class="mb-3">
+                    <label for="categoria-carro" class="form-label">Categoria do Carro:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categoria" id="categoriaARetirada" value="A"
+                            required>
+                        <label class="form-check-label" for="categoriaARetirada">Categoria A</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categoria" id="categoriaBRetirada" value="B"
+                            required>
+                        <label class="form-check-label" for="categoriaBRetirada">Categoria B</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categoria" id="categoriaCRetirada" value="C"
+                            required>
+                        <label class="form-check-label" for="categoriaCRetirada">Categoria C</label>
+                    </div>
+                </div>
+
+                <button type="submit" id="botaoPagamentoRetirada" class="btn btn-secondary">Ir para pagamento</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Modal agendamento Retirada-->
+    <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Selecione um horário</h5>
+                    <i class="bi bi-arrow-return-left"></i>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+
+
+                <div id="lista-agendamento" class="modal-body">
+                    <label>
+                        <input name="agendamento" type="radio" value="1">
+                        Agendamento 1
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="2">
+                        Agendamento 2
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="3">
+                        Agendamento 3
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="4">
+                        Agendamento 4
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" id="btn-agendamento" class="btn btn-primary"
+                        data-bs-dismiss="modal">Agendar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal agendamento Delivery -->
+    <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Selecione um horário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="lista-agendamento" class="modal-body">
+                    <label>
+                        <input name="agendamento" type="radio" value="1">
+                        Agendamento 1
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="2">
+                        Agendamento 2
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="3">
+                        Agendamento 3
+                    </label>
+                    <label>
+                        <input name="agendamento" type="radio" value="4">
+                        Agendamento 4
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" id="btn-agendamento" class="btn btn-primary"
+                        data-bs-dismiss="modal">Agendar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Retirada-->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="fecharModal">&times;</span>
+            <h2>Forma de Pagamento</h2>
+            <form>
+                <label for="formaPagamento">Escolha a forma de pagamento:</label>
+                <select id="formaPagamento" name="formaPagamento">
+                    <option value="vista">Vista</option>
+                    <option value="parcelado">Parcelado</option>
+                </select><br>
+
+                <!-- Select para o número de parcelas (inicialmente oculto) -->
+                <label for="numeroParcelas" id="labelParcelas" style="display: none;">Número de Parcelas:</label>
+                <select id="numeroParcelas" name="numeroParcelas" style="display: none;">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                </select><br>
+
+                <label for="formaPagamentoCartao">Crédito ou Débito:</label>
+                <select id="formaPagamentoCartao" name="formaPagamentoCartao">
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                </select><br>
+
+                <label for="bandeiraCartao">Bandeira do Cartão:</label>
+                <input type="text" id="bandeiraCartao" name="bandeiraCartao"><br>
+
+                <label for="numeroCartao">Número do Cartão:</label>
+                <input type="text" id="numeroCartao" name="numeroCartao"><br>
+
+                <label for="cvvCartao">CVV:</label>
+                <input type="text" id="cvvCartao" name="cvvCartao"><br>
+
+                <input type="submit" value="Confirmar Pagamento">
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Modal Delivery-->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="fecharModal">&times;</span>
+            <h2>Forma de Pagamento</h2>
+            <form>
+                <label for="formaPagamento">Escolha a forma de pagamento:</label>
+                <select id="formaPagamento" name="formaPagamento">
+                    <option value="vista">Vista</option>
+                    <option value="parcelado">Parcelado</option>
+                </select><br>
+
+                <!-- Select para o número de parcelas (inicialmente oculto) -->
+                <label for="numeroParcelas" id="labelParcelas" style="display: none;">Número de Parcelas:</label>
+                <select id="numeroParcelas" name="numeroParcelas" style="display: none;">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                </select><br>
+
+                <label for="formaPagamentoCartao">Crédito ou Débito:</label>
+                <select id="formaPagamentoCartao" name="formaPagamentoCartao">
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                </select><br>
+
+                <label for="bandeiraCartao">Bandeira do Cartão:</label>
+                <input type="text" id="bandeiraCartao" name="bandeiraCartao"><br>
+
+                <label for="numeroCartao">Número do Cartão:</label>
+                <input type="text" id="numeroCartao" name="numeroCartao"><br>
+
+                <label for="cvvCartao">CVV:</label>
+                <input type="text" id="cvvCartao" name="cvvCartao"><br>
+
+                <input type="submit" value="Confirmar Pagamento">
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#dias-locacao").on("input", function () {
+                // Obter o valor do campo de dias
+                const diasLocacao = parseInt($(this).val(), 10);
+
+                // Obter a data e hora atuais
+                const dataAtual = new Date();
+
+                // Somar o número de dias ao valor atual
+                dataAtual.setDate(dataAtual.getDate() + diasLocacao);
+
+                // Formatar a data e hora para exibição
+                const dataFormatada = `${dataAtual.toLocaleDateString()} ${dataAtual.toLocaleTimeString()}`;
+
+                // Exibir o resultado na div
+                $("#previsao-devolucao-placeholder").text("Você poderá retirar o carro no dia: " + dataFormatada);
+            });
+            var botaoPagamento = document.getElementById("botaoPagamento");
+            var modal = document.getElementById("myModal");
+            var fecharModal = document.getElementById("fecharModal");
+            var formaPagamento = document.getElementById("formaPagamento");
+            var labelParcelas = document.getElementById("labelParcelas");
+            var numeroParcelas = document.getElementById("numeroParcelas");
+            var formaPagamentoCartao = document.getElementById("formaPagamentoCartao");
+
+            // Adicione um evento de clique ao botão
+            botaoPagamento.addEventListener("click", function () {
+                // Exiba o modal
+                modal.style.display = "block";
+            });
+
+            // Adicione um evento de clique para fechar o modal
+            fecharModal.addEventListener("click", function () {
+                // Feche o modal
+                modal.style.display = "none";
+            });
+
+            // Adicione um evento de mudança à forma de pagamento
+            formaPagamento.addEventListener("change", function () {
+                // Verifique se a forma de pagamento é "parcelado" e exiba o select de parcelas
+                if (formaPagamento.value === "parcelado") {
+                    labelParcelas.style.display = "inline";
+                    numeroParcelas.style.display = "inline";
+                } else {
+                    labelParcelas.style.display = "none";
+                    numeroParcelas.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
