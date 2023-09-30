@@ -1,0 +1,1 @@
+import './jquery-default-messages.js';

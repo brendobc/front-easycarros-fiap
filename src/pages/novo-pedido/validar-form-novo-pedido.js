@@ -1,29 +1,41 @@
-import { Pedido } from "../../model/Pedido.js";
+import { criarPedido } from "../../service/novoPedidoService.js";
 import { salvarPedido } from "../../service/storage.js";
-import { setFirstDeepAttributeFound } from "../../utils/attribute-setter.js";
 
-/**
- * Cria um objeto Pedido com os dados do formulário de novo pedido
- * @param {HTMLFormElement} formNovoPedido
- * @returns {Pedido}
- */
-function criarPedidoComBaseNoForm(formNovoPedido) {
-    const pedido = Pedido.criarInstanciaObjetosPreenchidos();
-    for(const [name, value] of new FormData(formNovoPedido).entries()) {
-        setFirstDeepAttributeFound(pedido, name, value);
+function validarCampoHiddenComModal(input, btnAbrirModal) {
+    if(
+        !input ||
+        input.value &&
+        !btnAbrirModal.classList.remove('error')
+    ) {
+        return true;
     }
 
-    return pedido;
+    btnAbrirModal.classList.add('error');
+    return false;
 }
 
 function inserirValidadorFormNovoPedido() {
-    // TODO completar validações
+    const btnSelecionarAgencia = document.querySelector('[data-selecionar="agencia"]'),
+          inputAgenciaSelecionada = document.getElementById('agenciaId'),
+          btnSelecionarAgendamento = document.querySelector('[data-selecionar="agendamento"]'),
+          inputAgendamentoSelecionado = document.getElementById('agendamento');
+
     $('#form-novo-pedido').validate({
         ignore: ['hidden'],
         submitHandler: function(form, e) {
             e.preventDefault();
 
-            salvarPedido(criarPedidoComBaseNoForm(form));
+            if(
+                [
+                    validarCampoHiddenComModal(inputAgenciaSelecionada, btnSelecionarAgencia),
+                    validarCampoHiddenComModal(inputAgendamentoSelecionado, btnSelecionarAgendamento)
+                ]
+                .includes(false)
+            ) {
+                return;
+            }
+
+            salvarPedido(criarPedido(form));
         }
     });
 }
