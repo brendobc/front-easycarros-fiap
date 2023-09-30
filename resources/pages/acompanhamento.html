@@ -19,11 +19,55 @@
     <script src="../../src/pages/acompanhamento-pedido/index.js" type="module" defer></script>
 
     <title>Acompanhamento - Easy Carros</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .pedido-info {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .pedido-status {
+            font-weight: bold;
+            color: #000000;
+        }
+    </style>
 </head>
 <body>
-    ACOMPANHAMENTO
-
-    <div id="acompanhamento"></div>
-
+    <div class="container">
+        <h1>Acompanhamento de Pedido Easy Carros</h1>
+        <div class="pedido-info">
+            <p>Número do Pedido: <span class="pedido-status">6467e1ff-1356-4e03-8ce5-ac2fccf3e7cc</span></p>
+            <p>Status do Pedido: <span class="pedido-status" id="status"></span></p>
+            <p>Categoria: <span class="pedido-status" id="categoria"></span></p>
+            <p>Valor: <span class="pedido-status" id="valor"></span></p>
+            <p>Modo de Pagamento: <span class="pedido-status" id="modoPagamento"></span></p>
+            <p>Agendamento: <span class="pedido-status" id="agendamento"></span></p>
+            <p>Diárias: <span class="pedido-status" id="previsaoDiasLocacao"></span></p>
+            <p>Nome do condutor: <span class="pedido-status" id="nome"></span></p>
+        </div>
+    </div>
 </body>
 </html>
