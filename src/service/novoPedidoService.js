@@ -52,15 +52,15 @@ function getAgendamentosDisponiveis() {
         const horaAgendamento = agendamentos[i - 1].getHours() + 1;
 
         // Se for depois das 18h, manda para o dia seguinte
-        if(horaAgendamento >= 8 && horaAgendamento <= 18) {
+        if(horaAgendamento >= 8 && horaAgendamento <= 17) {
             agendamentos[i].setHours(horaAgendamento);
             continue;
-        } else if(horaAgendamento > 18) {
+        } else if(horaAgendamento > 17) {
             const novaData = agendamentos[i].getDate() + 1;
 
-            for(const agendamentoNovaData of agendamentos) {
-                agendamentoNovaData.setDate(novaData);
-                agendamentoNovaData.setMinutes(10);
+            for(let j=i; j < agendamentos.length; j++) {
+                agendamentos[j].setDate(novaData);
+                agendamentos[j].setMinutes(10);
             }
         }
 
