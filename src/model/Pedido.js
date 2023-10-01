@@ -48,9 +48,13 @@ Pedido.Categoria = {
 }
 
 /** @typedef {String} ModoPagamento */
-/** @property {ModoPagamento} CARTAO_CREDITO */
+/**
+ * @property {ModoPagamento} CARTAO_CREDITO
+ * @property {ModoPagamento} CARTAO_DEBITO
+ */
 Pedido.ModoPagamento = {
-    CARTAO_CREDITO: 'CARTAO_CREDITO'
+    CARTAO_CREDITO: 'CARTAO_CREDITO',
+    CARTAO_DEBITO: 'CARTAO_DEBITO'
 }
 
 /** @typedef {String} Status */
