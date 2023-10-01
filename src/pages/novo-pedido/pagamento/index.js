@@ -23,6 +23,9 @@ function initFuncionalidadesPagamento() {
             formaPagamentoCartao.labels[0].style.display = "inline";
         }
     });
+
+    $("#numeroCartao").mask("9999 9999 9999 9999");
+    $("#cvvCartao").mask("9999");
 }
 
 export { initFuncionalidadesPagamento }

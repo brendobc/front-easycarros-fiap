@@ -14,9 +14,10 @@ function criarPedido(formNovoPedido) {
     const sectionLogradouro = formNovoPedido.querySelector('#section-localizacao'),
           inputAgendamento = formNovoPedido.querySelector('#agendamento'),
           agenciaId = document.getElementById('agenciaId'),
-          selectFormaPagamentoCartao = document.getElementById('formaPagamentoCartao');
+          selectFormaPagamentoCartao = document.getElementById('formaPagamentoCartao'),
+          selectCategoriaPedido = document.getElementById('select-categoria-pedido');
 
-    if(sectionLogradouro) {
+    if(selectCategoriaPedido.value === Pedido.Categoria.DELIVERY) {
         localizacao = new Localizacao(1); 
 
         for(const dadoLocalizacao of sectionLogradouro.querySelectorAll('input')) {
@@ -26,7 +27,7 @@ function criarPedido(formNovoPedido) {
         }
 
         categoria = Pedido.Categoria.DELIVERY;
-    } else if(agenciaId) {
+    } else if(selectCategoriaPedido.value === Pedido.Categoria.RETIRADA) {
         agencia = getAgenciaById(agenciaId.value);
         categoria = Pedido.Categoria.RETIRADA;
     }
@@ -34,7 +35,7 @@ function criarPedido(formNovoPedido) {
     previsaoDiasLocacao = document.getElementById('dias-locacao').value;
     valor = (Math.random() * 200 * Number(previsaoDiasLocacao) + 50).toFixed(2);
     modoPagamento = selectFormaPagamentoCartao.value;
-    agendamento = new Date(inputAgendamento.value); // TODO ajustar estrutura de agendamentos
+    agendamento = new Date(inputAgendamento.value);
 
     return new Pedido(
         null, localizacao, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao
@@ -51,12 +52,10 @@ function getAgendamentosDisponiveis() {
         const horaAgendamento = agendamentos[i - 1].getHours() + 1;
 
         // Se for depois das 18h, manda para o dia seguinte
-        if(horaAgendamento <= 18) {
+        if(horaAgendamento >= 8 && horaAgendamento <= 18) {
             agendamentos[i].setHours(horaAgendamento);
-        } else {
-            agendamentos[i].setHours(8);
-            agendamentos[i].setMinutes(10);
-
+            continue;
+        } else if(horaAgendamento > 18) {
             const novaData = agendamentos[i].getDate() + 1;
 
             for(const agendamentoNovaData of agendamentos) {
@@ -64,6 +63,9 @@ function getAgendamentosDisponiveis() {
                 agendamentoNovaData.setMinutes(10);
             }
         }
+
+        agendamentos[i].setHours(8);
+        agendamentos[i].setMinutes(10);
     }
     // atenzione, atenzione! Aqui, a variável "hoje" já não corresponde ao presente momento
 
