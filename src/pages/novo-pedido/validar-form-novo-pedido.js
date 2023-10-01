@@ -1,3 +1,4 @@
+import { Pedido } from "../../model/Pedido.js";
 import { criarPedido } from "../../service/novoPedidoService.js";
 import { salvarPedido } from "../../service/storage.js";
 
@@ -18,7 +19,8 @@ function inserirValidadorFormNovoPedido() {
     const btnSelecionarAgencia = document.querySelector('[data-selecionar="agencia"]'),
           inputAgenciaSelecionada = document.getElementById('agenciaId'),
           btnSelecionarAgendamento = document.querySelector('[data-selecionar="agendamento"]'),
-          inputAgendamentoSelecionado = document.getElementById('agendamento');
+          inputAgendamentoSelecionado = document.getElementById('agendamento'),
+          selectCategoriaPedido = document.getElementById('select-categoria-pedido');
 
     $('#form-novo-pedido').validate({
         ignore: ['hidden'],
@@ -27,7 +29,8 @@ function inserirValidadorFormNovoPedido() {
 
             if(
                 [
-                    validarCampoHiddenComModal(inputAgenciaSelecionada, btnSelecionarAgencia),
+                    selectCategoriaPedido.value === Pedido.Categoria.DELIVERY ||
+                        validarCampoHiddenComModal(inputAgenciaSelecionada, btnSelecionarAgencia),
                     validarCampoHiddenComModal(inputAgendamentoSelecionado, btnSelecionarAgendamento)
                 ]
                 .includes(false)

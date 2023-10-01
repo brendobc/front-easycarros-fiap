@@ -14,9 +14,10 @@ function criarPedido(formNovoPedido) {
     const sectionLogradouro = formNovoPedido.querySelector('#section-localizacao'),
           inputAgendamento = formNovoPedido.querySelector('#agendamento'),
           agenciaId = document.getElementById('agenciaId'),
-          selectFormaPagamentoCartao = document.getElementById('formaPagamentoCartao');
+          selectFormaPagamentoCartao = document.getElementById('formaPagamentoCartao'),
+          selectCategoriaPedido = document.getElementById('select-categoria-pedido');
 
-    if(sectionLogradouro) {
+    if(selectCategoriaPedido.value === Pedido.Categoria.DELIVERY) {
         localizacao = new Localizacao(1); 
 
         for(const dadoLocalizacao of sectionLogradouro.querySelectorAll('input')) {
@@ -26,7 +27,7 @@ function criarPedido(formNovoPedido) {
         }
 
         categoria = Pedido.Categoria.DELIVERY;
-    } else if(agenciaId) {
+    } else if(selectCategoriaPedido.value === Pedido.Categoria.RETIRADA) {
         agencia = getAgenciaById(agenciaId.value);
         categoria = Pedido.Categoria.RETIRADA;
     }
