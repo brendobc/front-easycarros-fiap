@@ -28,17 +28,6 @@
 </head>
 
 <body>
-    <!-- Guia (tab) no início da página -->
-    <!-- <ul class="nav nav-tabs" id="myTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="delivery-tab" data-bs-toggle="tab" href="#delivery" role="tab">Delivery</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="retirada-tab" data-bs-toggle="tab" href="#retirada" role="tab">Retirada</a>
-        </li>
-    </ul> -->
-
-    <!-- TODO criar select para alternar entre delivery e retirada -->
     <!-- Conteúdo da tab Delivery -->
     <form id="form-novo-pedido">
         <select id="select-categoria-pedido">
@@ -46,8 +35,7 @@
             <option value="RETIRADA">Retirada</option>
         </select>
 
-        <!-- TODO desabilitar quando a modalidade do pedido for "delivery" -->
-        <section id="section-agencia">
+        <section id="section-agencia" style="display: none;">
             <button
                 type="button"
                 data-bs-toggle="modal"
@@ -62,7 +50,6 @@
             <div id="agencia-selecionada-placeholder"></div>
         </section>
 
-        <!-- TODO desabilitar quando a modalidade do pedido for "entrega" -->
         <section id="section-localizacao">
             <div class="row">
                 <div class="col-lg-3">

@@ -3,7 +3,6 @@ import { getAgendamentosDisponiveis } from "../../service/novoPedidoService.js";
 const listaAgendamento = document.getElementById('lista-agendamento');
 
 // TODO JSDoc
-// TODO completar função
 function criarCardAgendamento(agendamento) {
     const labelAgendamento = document.createElement('label');
 
