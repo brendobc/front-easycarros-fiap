@@ -56,7 +56,7 @@ function validarCampos(force = false) {
 
 function inserirValidadorFormNovoPedido() {
     $(formNovoPedido).validate({
-        ignore: ['hidden'],
+        ignore: ['hidden', 'disabled'],
         submitHandler: function(_form, e) {
             e.preventDefault();
 
