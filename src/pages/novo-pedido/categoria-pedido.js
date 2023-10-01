@@ -7,7 +7,9 @@ const sectionAgencia = document.getElementById('section-agencia'),
  * @this {HTMLSelectElement}
  */
 function toggleVisibilidadeCamposDeliveryRetirada() {
-    const isDelivery = this.value === Pedido.Categoria.DELIVERY;
+    const isDelivery = this.value === Pedido.Categoria.DELIVERY,
+          inputAgendamentoId = document.getElementById('agendamento'),
+          agendamentoPlaceholder = document.getElementById('agendamento-selecionado-placeholder');
 
     if(isDelivery) {
         sectionAgencia.style.display = 'none';
@@ -22,6 +24,9 @@ function toggleVisibilidadeCamposDeliveryRetirada() {
         sectionLocalizacao.style.display = 'none';
         sectionLocalizacao.toggleAttribute('disabled', true);
     }
+
+    inputAgendamentoId.value = null;
+    agendamentoPlaceholder.innerText = '';
 }
 
 function initFuncionalidadeToggleCampos() {
