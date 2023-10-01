@@ -1,1 +1,4 @@
-console.log('Teste tela acompanhar pedido');
+import { initConfirmarEntrega, initConsultaAcompanhamento } from "./acompanhamento.js";
+
+initConsultaAcompanhamento();
+initConfirmarEntrega();

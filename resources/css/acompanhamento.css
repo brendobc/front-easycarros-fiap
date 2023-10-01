@@ -1,0 +1,88 @@
+body {
+    font-family: 'Ubuntu';
+    background-image: url('/resources/img/background_acompanhamento.jpeg');
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+link{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+h2 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
+button {
+    justify-content: center;
+}
+
+.acompanhamento-info {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn-confirmar {
+    text-align: center;
+
+}
+button {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+
+.link-info {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.logo{
+    text-align: center;
+    padding: 10px;
+}
+
+.pedido-status {
+    font-weight: bold;
+    color: #000000;
+}
+
+img {
+    
+    width: 100px; /* Largura desejada */
+    height: auto; /* Mantém a proporção original */
+    margin-top: 20px; /* Espaço superior */
+}

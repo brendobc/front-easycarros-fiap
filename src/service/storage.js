@@ -28,4 +28,9 @@ function getPedidoSalvo() {
     return JSON.parse(localStorage.getItem(PEDIDO_KEY));
 }
 
-export { salvarPedido, getPedidoSalvo }
+
+function removePedido() {
+    localStorage.removeItem(PEDIDO_KEY);
+}
+
+export { salvarPedido, getPedidoSalvo, removePedido }

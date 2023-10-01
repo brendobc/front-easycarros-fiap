@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/acompanhamento.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
@@ -19,8 +19,43 @@
     <script src="../../src/pages/acompanhamento-pedido/index.js" type="module" defer></script>
 
     <title>Acompanhamento - Easy Carros</title>
+
 </head>
 <body>
-    ACOMPANHAMENTO
+    
+    <div class="container ">
+        <div class="logo">
+            <img src="/resources/img/logo.png" alt="Descrição da Imagem">
+        </div>
+        
+        <h1>Acompanhamento de Pedido</h1>
+        
+        <div class="acompanhamento-info">
+            <p id="numeroPedidoLabel">Número do Pedido: <span class="pedido-status" id="numeroPedido">6467e1ff-1356-4e03-8ce5-ac2fccf3e7cc</span></p>
+            <p id="statusLabel">Status do Pedido: <span class="pedido-status" id="status"></span></p>
+            <p id="categoriaLabel">Categoria: <span class="pedido-status" id="categoria"></span></p>
+            <p id="agendamentoLabel">Agendamento: <span class="pedido-status" id="agendamento"></span></p>
+            <p id="previsaoDiasLocacaoLabel">Diárias: <span class="pedido-status" id="previsaoDiasLocacao"></span></p>
+            <p id="nomeAgenciaLabel" >Nome agência: <span class="pedido-status" id="nomeAgencia"></span></p>
+            <p id="nomeUsuarioLabel">Nome do condutor: <span class="pedido-status" id="nomeUsuario"></span></p>
+            <p id="logradouroLabel">Logradouro: <span class="pedido-status" id="logradouro"></span></p>
+            <p id="numeroLabel">Número: <span class="pedido-status" id="numero"></span></p>
+            <p id="bairroLabel">Bairro: <span class="pedido-status" id="bairro"></span></p>
+            <p id="cidadeLabel">Cidade: <span class="pedido-status" id="cidade"></span></p>
+            <p id="estadoLabel">Estado: <span class="pedido-status" id="estado"></span></p>
+            <p id="cepLabel">Cep: <span class="pedido-status" id="cep"></span></p>
+            <p id="complementoLabel">Complemento: <span class="pedido-status" id="complemento"></span></p>
+            <p id="pontoReferenciaLabel">Ponto de Referência: <span class="pedido-status" id="pontoReferencia"></span></p>
+            <p id="modoPagamentoLabel">Modo de Pagamento: <span class="pedido-status" id="modoPagamento"></span></p>
+            <p id="valorLabel">Valor: R$<span class="pedido-status" id="valor"></span></p>            
+            <h2 id="empty"></h2>
+        </div>
+        <div class="btn-confirmar">
+            <a id="btn-confirmar-entrega" href="acompanhamento.html"><button type="button">Confirmar Entrega</button></a>
+        </div>
+        <div class="link-info">
+            <a href="pedido.html"><button id="linkNovoPedido"></button></a>
+        </div>
+    </div>
 </body>
 </html>
