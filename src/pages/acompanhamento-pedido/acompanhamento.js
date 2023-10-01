@@ -101,7 +101,7 @@ function formataDelivery (localizacao) {
 }
 
 function formataRetirada(agencia) {
-    nomeAgenciaPlaceHolder.style.display = agencia.nome;
+    nomeAgenciaPlaceHolder.innerText = agencia.nome;
     logradouroPlaceHolder.innerText = agencia.localizacao.logradouro;
     numeroPlaceHolder.innerText = agencia.localizacao.numero;
     bairroPlaceHolder.innerText = agencia.localizacao.bairro;
