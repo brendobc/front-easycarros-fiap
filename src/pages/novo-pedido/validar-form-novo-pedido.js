@@ -39,6 +39,7 @@ function inserirValidadorFormNovoPedido() {
             }
 
             salvarPedido(criarPedido(form));
+            window.location.href = './acompanhamento.html';
         }
     });
 }
