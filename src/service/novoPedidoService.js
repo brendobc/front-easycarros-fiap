@@ -35,7 +35,7 @@ function criarPedido(formNovoPedido) {
     previsaoDiasLocacao = document.getElementById('dias-locacao').value;
     valor = (Math.random() * 200 * Number(previsaoDiasLocacao) + 50).toFixed(2);
     modoPagamento = selectFormaPagamentoCartao.value;
-    agendamento = new Date(inputAgendamento.value); // TODO ajustar estrutura de agendamentos
+    agendamento = new Date(inputAgendamento.value);
 
     return new Pedido(
         null, localizacao, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao
