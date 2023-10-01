@@ -190,3 +190,31 @@ label.error {
 [data-selecionar].error {
     color: #ff3333;
 }
+
+#section-categoria-carro {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.label-categoria-carro {
+    padding: 12px;
+    width: 200px;
+    border: 1px grey solid;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.label-categoria-carro small {
+    color: #686868;
+    display: block;
+}
+
+input[name="categoria"]:checked + label {
+    border-color: #324156;
+    background-color: #d4ffff;
+}
+
+input[name="categoria"] {
+    display: none;
+}
