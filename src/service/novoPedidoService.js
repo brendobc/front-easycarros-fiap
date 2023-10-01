@@ -11,8 +11,10 @@ import { getAgenciaById } from "./AgenciaService.js";
 function criarPedido(formNovoPedido) {
     let localizacao, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao;
 
-    const sectionLogradouro = formNovoPedido.querySelector('#section-localizacao');
-    const agenciaId = document.getElementById('agenciaId');
+    const sectionLogradouro = formNovoPedido.querySelector('#section-localizacao'),
+          inputAgendamento = formNovoPedido.querySelector('#agendamento'),
+          agenciaId = document.getElementById('agenciaId'),
+          selectFormaPagamentoCartao = document.getElementById('formaPagamentoCartao');
 
     if(sectionLogradouro) {
         localizacao = new Localizacao(1); 
@@ -31,8 +33,8 @@ function criarPedido(formNovoPedido) {
     
     previsaoDiasLocacao = document.getElementById('dias-locacao').value;
     valor = (Math.random() * 200 * Number(previsaoDiasLocacao) + 50).toFixed(2);
-    modoPagamento = Pedido.ModoPagamento.CARTAO_CREDITO;
-    agendamento = new Date(); // TODO ajustar estrutura de agendamentos
+    modoPagamento = selectFormaPagamentoCartao.value;
+    agendamento = new Date(inputAgendamento.value); // TODO ajustar estrutura de agendamentos
 
     return new Pedido(
         null, localizacao, agencia, categoria, valor, modoPagamento, agendamento, previsaoDiasLocacao
