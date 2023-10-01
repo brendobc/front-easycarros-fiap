@@ -1,6 +1,5 @@
-import { getPedidoSalvo } from "../../service/storage.js";
-
-const numeroPedidoPlaceholder = document.getElementById('numeroPedido');
+import { getPedidoSalvo, removePedido } from "../../service/storage.js";
+const linkNovoPedido = document.getElementById('linkNovoPedido')
 const categoriaPlaceholder = document.getElementById('categoria');
 const valorPlaceholder = document.getElementById('valor');
 const modoPagamentoPlaceholder = document.getElementById('modoPagamento');
@@ -18,10 +17,10 @@ const cepPlaceHolder = document.getElementById('cep');
 const complementoPlaceHolder = document.getElementById('complemento');
 const pontoReferenciaPlaceHolder = document.getElementById('pontoReferencia');
 const nomeAgenciaPlaceHolder = document.getElementById('nomeAgencia');
+const btnConfirmarEntrega = document.getElementById('btn-confirmar-entrega');
 
 function initConsultaAcompanhamento() {
 
-    
     var consultaPedido = getPedidoSalvo();
 
     if (!consultaPedido) {
@@ -62,12 +61,15 @@ function initConsultaAcompanhamento() {
         pontoReferenciaLabel.style.display = 'none';
         nomeAgenciaLabel.style.display = 'none';
         emptyPlaceHolder.innerText = "Nenhum pedido disponível ";
+        btnConfirmarEntrega.style.display = 'none';
         return linkNovoPedido.innerText = 'Novo pedido'
     }
 
-    const data = new Date(consultaPedido.agendamento);
+    linkNovoPedido.style.display = 'none';
+    
+    const agendamento = new Date(consultaPedido.agendamento);
 
-    var dataFormatada = data.toLocaleDateString();
+    var dataFormatada = `${agendamento.toLocaleDateString('pt-BR')} - ${agendamento.getHours()}:${agendamento.getMinutes()}`;
 
     categoriaPlaceholder.innerText = consultaPedido.categoria;
     valorPlaceholder.innerText = consultaPedido.valor;
@@ -110,4 +112,10 @@ function formataRetirada(agencia) {
     pontoReferenciaPlaceHolder.innerText = agencia.localizacao.pontoReferencia;
 }
 
-export {  initConsultaAcompanhamento  }
+function initConfirmarEntrega() {
+    btnConfirmarEntrega.addEventListener('click', function () {
+        removePedido();
+    })
+}
+
+export {  initConsultaAcompanhamento , initConfirmarEntrega }
