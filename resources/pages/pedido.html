@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
     <script src="../../src/pages/global/index.js" type="module" defer></script>
-    <script src="../../src/pages/novo-pedido/delivery/index.js" type="module" defer></script>
+    <script src="../../src/pages/novo-pedido/index.js" type="module" defer></script>
 
     <title>Delivery - Easy Carros</title>
 </head>
@@ -48,7 +48,16 @@
 
         <!-- TODO desabilitar quando a modalidade do pedido for "delivery" -->
         <section id="section-agencia">
-            <input class="agenciaId" name="agenciaId" type="hidden">
+            <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modal-selecionar-agencia"
+                data-selecionar="agencia"
+            >
+                Selecionar agência
+            </button>
+
+            <input id="agenciaId" name="agenciaId" type="hidden">
 
             <div id="agencia-selecionada-placeholder"></div>
         </section>
@@ -173,6 +182,26 @@
         
         <button type="submit" id="botaoPagamento" class="btn btn-secondary">Ir para pagamento</button>
     </form>
+
+    <!-- Modal selecionar agência -->
+    <div class="modal fade" id="modal-selecionar-agencia" tabindex="-1" aria-labelledby="modal-selecionar-agencia" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Selecione uma agência</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div id="lista-agencias" class="modal-body"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" id="btn-selecionar-agencia" class="btn btn-primary" data-bs-dismiss="modal">Selecionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal agendamento -->
     <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
