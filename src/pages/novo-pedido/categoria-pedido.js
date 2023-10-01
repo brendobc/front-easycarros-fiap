@@ -1,4 +1,5 @@
 import { Pedido } from "../../model/Pedido.js";
+import { validarCampos } from "./validar-form-novo-pedido.js";
 
 const sectionAgencia = document.getElementById('section-agencia'),
       sectionLocalizacao = document.getElementById('section-localizacao');
@@ -27,6 +28,7 @@ function toggleVisibilidadeCamposDeliveryRetirada() {
 
     inputAgendamentoId.value = null;
     agendamentoPlaceholder.innerText = '';
+    validarCampos(true);
 }
 
 function initFuncionalidadeToggleCampos() {

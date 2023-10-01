@@ -176,3 +176,17 @@
     font-weight: bold;
     line-height: normal;
 }
+
+label.error {
+    color: #ff3333;
+    margin-bottom: 8px;
+}
+
+#lista-agencias label, #lista-agendamento label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+[data-selecionar].error {
+    color: #ff3333;
+}
