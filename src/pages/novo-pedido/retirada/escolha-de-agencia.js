@@ -1,3 +1,29 @@
+const lista = document.getElementById('lista-agendamento');
+
+// TODO JSDoc
+// TODO completar função
+function criarCardAgendamento(agendamento) {
+    const labelAgendamento = document.createElement('label');
+
+    labelAgendamento.innerHTML = `
+        <input name="agendamento" type="radio" value="${agendamento.toString()}">
+        ${agendamento.toLocaleDateString('pt-BR')} - ${agendamento.getHours()}:${agendamento.getMinutes()}
+    `;
+
+    return labelAgendamento;
+}
+
+function carregarAgendamentosDisponíveis() {
+    const fragment = document.createDocumentFragment();
+
+    for(const agendamento of getAgendamentosDisponiveis()) {
+        fragment.appendChild(criarCardAgendamento(agendamento));
+    }
+
+    listaAgendamento.innerHTML = '';
+    listaAgendamento.appendChild(fragment);
+}
+
 function initFuncionalidadesModalEscolhaAgencia() {
     const btnSelecionarAgencia = document.getElementById('btn-selecionar-agencia');
     btnSelecionarAgencia.addEventListener('click', function () {
