@@ -94,7 +94,7 @@
             </label>
         </section>
 
-        <button type="submit">Ir para pagamento</button>
+        <button type="submit" id="botaoPagamento">Ir para pagamento</button>
     </form>
     <!-- Fim formulário pedido -->
 
@@ -126,44 +126,102 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" id="btn-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
+                <button type="button" id="btn-selecionar-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
                 </div>
             </div>
             </div>
         </div>
 
-        <!-- Modal agendamento -->
-        <div class="modal fade" id="modal-agendamento" tabindex="-1" aria-labelledby="modal-agendamento" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Selecione um horário</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="lista-agendamento" class="modal-body">
-                    <label>
-                        <input name="agendamento" type="radio" value="1">
-                        Agendamento 1
-                    </label>
-                    <label>
-                        <input name="agendamento" type="radio" value="2">
-                        Agendamento 2
-                    </label>
-                    <label>
-                        <input name="agendamento" type="radio" value="3">
-                        Agendamento 3
-                    </label>
-                    <label>
-                        <input name="agendamento" type="radio" value="4">
-                        Agendamento 4
-                    </label>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" id="btn-agendamento" class="btn btn-primary" data-bs-dismiss="modal">Agendar</button>
-                </div>
-            </div>
-            </div>
+        <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="fecharModal">&times;</span>
+            <h2>Forma de Pagamento</h2>
+            <form>
+                <label for="formaPagamento">Escolha a forma de pagamento:</label>
+                <select id="formaPagamento" name="formaPagamento">
+                    <option value="vista">Vista</option>
+                    <option value="parcelado">Parcelado</option>
+                </select><br>
+
+                <!-- Select para o número de parcelas (inicialmente oculto) -->
+                <label for="numeroParcelas" id="labelParcelas" style="display: none;">Número de Parcelas:</label>
+                <select id="numeroParcelas" name="numeroParcelas" style="display: none;">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                </select><br>
+
+                <label for="formaPagamentoCartao">Crédito ou Débito:</label>
+                <select id="formaPagamentoCartao" name="formaPagamentoCartao">
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                </select><br>
+
+                <label for="bandeiraCartao">Bandeira do Cartão:</label>
+                <input type="text" id="bandeiraCartao" name="bandeiraCartao"><br>
+
+                <label for="numeroCartao">Número do Cartão:</label>
+                <input type="text" id="numeroCartao" name="numeroCartao"><br>
+
+                <label for="cvvCartao">CVV:</label>
+                <input type="text" id="cvvCartao" name="cvvCartao"><br>
+
+                <input type="submit" value="Confirmar Pagamento">
+            </form>
         </div>
+    </div>
+        <script>
+            $(document).ready(function () {
+                $("#dias-locacao").on("input", function () {
+                    // Obter o valor do campo de dias
+                    const diasLocacao = parseInt($(this).val(), 10);
+    
+                    // Obter a data e hora atuais
+                    const dataAtual = new Date();
+    
+                    // Somar o número de dias ao valor atual
+                    dataAtual.setDate(dataAtual.getDate() + diasLocacao);
+    
+                    // Formatar a data e hora para exibição
+                    const dataFormatada = `${dataAtual.toLocaleDateString()} ${dataAtual.toLocaleTimeString()}`;
+    
+                    // Exibir o resultado na div
+                    $("#previsao-devolucao-placeholder").text("Você poderá retirar o carro no dia: " + dataFormatada);
+                });
+                var botaoPagamento = document.getElementById("botaoPagamento");
+                var modal = document.getElementById("myModal");
+                var fecharModal = document.getElementById("fecharModal");
+                var formaPagamento = document.getElementById("formaPagamento");
+                var labelParcelas = document.getElementById("labelParcelas");
+                var numeroParcelas = document.getElementById("numeroParcelas");
+                var formaPagamentoCartao = document.getElementById("formaPagamentoCartao");
+    
+                // Adicione um evento de clique ao botão
+                botaoPagamento.addEventListener("click", function () {
+                    // Exiba o modal
+                    modal.style.display = "block";
+                });
+    
+                // Adicione um evento de clique para fechar o modal
+                fecharModal.addEventListener("click", function () {
+                    // Feche o modal
+                    modal.style.display = "none";
+                });
+    
+                // Adicione um evento de mudança à forma de pagamento
+                formaPagamento.addEventListener("change", function () {
+                    // Verifique se a forma de pagamento é "parcelado" e exiba o select de parcelas
+                    if (formaPagamento.value === "parcelado") {
+                        labelParcelas.style.display = "inline";
+                        numeroParcelas.style.display = "inline";
+                    } else {
+                        labelParcelas.style.display = "none";
+                        numeroParcelas.style.display = "none";
+                    }
+                });
+            });
+        </script>
 </body>
 </html>
