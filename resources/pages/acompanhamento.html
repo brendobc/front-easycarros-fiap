@@ -26,6 +26,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         .container {
@@ -37,13 +38,35 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
+        a{
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 5px;
         }
 
-        .pedido-info {
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h5 {
+            text-align: center;
+        }
+
+        .acompanhamento-info {
             background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .link-info {
             padding: 10px;
             border-radius: 5px;
             margin-top: 20px;
@@ -53,21 +76,39 @@
             font-weight: bold;
             color: #000000;
         }
+
+        a:hover {
+            background-color: #030127;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Acompanhamento de Pedido Easy Carros</h1>
-        <div class="pedido-info">
-            <p>Número do Pedido: <span class="pedido-status">6467e1ff-1356-4e03-8ce5-ac2fccf3e7cc</span></p>
-            <p>Status do Pedido: <span class="pedido-status" id="status"></span></p>
-            <p>Categoria: <span class="pedido-status" id="categoria"></span></p>
-            <p>Valor: <span class="pedido-status" id="valor"></span></p>
-            <p>Modo de Pagamento: <span class="pedido-status" id="modoPagamento"></span></p>
-            <p>Agendamento: <span class="pedido-status" id="agendamento"></span></p>
-            <p>Diárias: <span class="pedido-status" id="previsaoDiasLocacao"></span></p>
-            <p>Nome do condutor: <span class="pedido-status" id="nome"></span></p>
+        <div class="acompanhamento-info">
+            <p id="numeroPedidoLabel">Número do Pedido: <span class="pedido-status" id="numeroPedido">6467e1ff-1356-4e03-8ce5-ac2fccf3e7cc</span></p>
+            <p id="statusLabel">Status do Pedido: <span class="pedido-status" id="status"></span></p>
+            <p id="categoriaLabel">Categoria: <span class="pedido-status" id="categoria"></span></p>
+            <p id="valorLabel">Valor: <span class="pedido-status" id="valor"></span></p>
+            <p id="modoPagamentoLabel">Modo de Pagamento: <span class="pedido-status" id="modoPagamento"></span></p>
+            <p id="agendamentoLabel">Agendamento: <span class="pedido-status" id="agendamento"></span></p>
+            <p id="previsaoDiasLocacaoLabel">Diárias: <span class="pedido-status" id="previsaoDiasLocacao"></span></p>
+            <p id="nomeUsuarioLabel">Nome do condutor: <span class="pedido-status" id="nomeUsuario"></span></p>
+            <p id="logradouroLabel">Logradouro: <span class="pedido-status" id="logradouro"></span></p>
+            <p id="numeroLabel">Número: <span class="pedido-status" id="numero"></span></p>
+            <p id="bairroLabel">Bairro: <span class="pedido-status" id="bairro"></span></p>
+            <p id="cidadeLabel">Cidade: <span class="pedido-status" id="cidade"></span></p>
+            <p id="estadoLabel">Estado: <span class="pedido-status" id="estado"></span></p>
+            <p id="cepLabel">Cep: <span class="pedido-status" id="cep"></span></p>
+            <p id="complementoLabel">Complemento: <span class="pedido-status" id="complemento"></span></p>
+            <p id="pontoReferenciaLabel">Ponto de Referência: <span class="pedido-status" id="pontoReferencia"></span></p>
+            <p id="nomeAgenciaLabel" >Nome agência: <span class="pedido-status" id="nomeAgencia"></span></p>
+            <h2 id="empty"></h2>
         </div>
+        <div class="link-info">
+            <a id="linkNovoPedido" href="pedido-delivery.html"></a>
+        </div>
+        
     </div>
 </body>
 </html>
