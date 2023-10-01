@@ -1,4 +1,5 @@
 import { getAgendamentosDisponiveis } from "../../service/novoPedidoService.js";
+import { validarCampoHiddenComModal } from "./validar-form-novo-pedido.js";
 
 const listaAgendamento = document.getElementById('lista-agendamento');
 
@@ -30,17 +31,15 @@ function initFuncionalidadesModalAgendamento() {
           btnAbrirModalSelecaoAgendamento = document.querySelector('[data-selecionar="agendamento"]');
 
     btnSelecionarAgendamento.addEventListener('click', function() {
-        const inputAgendamento = document.querySelector('#lista-agendamento input:checked');
-
-        if(!inputAgendamento) {
-            return;
-        }
+        const inputAgendamento = document.querySelector('#lista-agendamento input:checked'),
+              inputAgendamentoId = document.getElementById('agendamento'),
+              labelErroAgendamento = document.getElementById('label-erro-agendamento'),
+              agendamentoPlaceholder = document.getElementById('agendamento-selecionado-placeholder');
         
-        const inputAgendamentoId = document.getElementById('agendamento');
-        const agendamentoPlaceholder = document.getElementById('agendamento-selecionado-placeholder');
-        inputAgendamentoId.value = inputAgendamento.value;
+        inputAgendamentoId.value = inputAgendamento ? inputAgendamento.value : null;
+        agendamentoPlaceholder.innerText = inputAgendamento ? inputAgendamento.labels[0].innerText : null;
 
-        agendamentoPlaceholder.innerText = inputAgendamento.labels[0].innerText;
+        validarCampoHiddenComModal(inputAgendamentoId, btnAbrirModalSelecaoAgendamento, labelErroAgendamento);
     });
 
     btnAbrirModalSelecaoAgendamento.addEventListener('click', carregarAgendamentosDisponíveis);

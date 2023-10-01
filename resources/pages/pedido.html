@@ -28,92 +28,111 @@
 </head>
 
 <body>
-    <!-- Conteúdo da tab Delivery -->
+    <img class="bg_video" src="https://brendobc.github.io/front-easycarros-fiap/resources/img/road.gif" alt="Road gif">
+
     <form id="form-novo-pedido">
-        <select id="select-categoria-pedido">
-            <option value="DELIVERY">Delivery</option>
-            <option value="RETIRADA">Retirada</option>
-        </select>
+        <div class="form_header">
+            <h1 class="pedido">Faça o seu pedido</h1>
+        </div>
+        
+        <div class="wrapper-select-categoria-pedido">
+            <select id="select-categoria-pedido">
+                <option value="DELIVERY">Delivery</option>
+                <option value="RETIRADA">Retirada</option>
+            </select>
+        </div>
 
         <section id="section-agencia" style="display: none;">
+            <legend>Agência para retirada:</legend>
+
             <button
+                class="btn btn-outline"
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#modal-selecionar-agencia"
                 data-selecionar="agencia"
             >
-                Selecionar agência
+                Selecione
             </button>
+
+            <label id="label-erro-agencia" class="error" style="display: none;">É preciso selecionar uma agência</label>
 
             <input id="agenciaId" name="agenciaId" type="hidden">
 
-            <div id="agencia-selecionada-placeholder"></div>
+            <strong>Agência selecionada:</strong>
+            <span id="agencia-selecionada-placeholder"></span>
         </section>
 
         <section id="section-localizacao">
+            <legend>Endereço de entrega:</legend>
+
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="logradouro">Logradouro</label>
                     <input class="form-control" type="text" id="logradouro" name="logradouro" value="" required>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="numero">Número</label>
                     <input class="form-control" type="text" id="numero" name="numero" value="" required>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="cidade">Cidade</label>
                     <input class="form-control" type="text" id="cidade" name="cidade" value="" required>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="bairro">Bairro</label>
                     <input class="form-control" type="text" id="bairro" name="bairro" value="" required>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="estado">Estado</label>
                     <input class="form-control" type="text" id="estado" name="estado" value="" required>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="cep">CEP</label>
                     <input class="form-control" type="text" id="cep" name="cep" value="" required>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="complemento">Complemento</label>
                     <input class="form-control" type="text" id="complemento" name="complemento" value="">
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-6">
                     <label for="pontoReferencia">Ponto de Refêrencia</label>
                     <input class="form-control" type="text" id="pontoReferencia" name="pontoReferencia" value="">
                 </div>
             </div>
         </section>
 
-        <!-- TODO limpar agendamento quando trocar a modalidade do pedido -->
         <section id="section-agendamento">
+            <legend>Agendamento:</legend>
+
             <button type="button" data-bs-toggle="modal" data-bs-target="#modal-agendamento"
-                data-selecionar="agendamento" class="btn btn-secondary">
-                Agendamento
+                data-selecionar="agendamento" class="btn btn-outline">
+                Selecione
             </button>
+
+            <label id="label-erro-agendamento" class="error" style="display: none;">É preciso selecionar um agendamento</label>
             
             <input id="agendamento" name="agendamento" type="hidden">
 
-            <div id="agendamento-selecionado-placeholder"></div>
+            <strong>Horário selecionado:</strong>
+            <span id="agendamento-selecionado-placeholder"></span>
         </section>
 
         <section id="section-tempo-aluguel">
-            <div class="col-lg-3">
+            <div class="col-6">
                 <label for="dias-locacao">Período da locação (dias):</label>
                 <input class="form-control" type="number" id="dias-locacao" name="dias" value="1" min="1" required>
             </div>
@@ -122,57 +141,85 @@
         </section>
 
         <section id="section-categoria-carro">
-            <input id="categoria-carro-a" type="radio" name="categoria" value="A">
-            <label class="label-categoria-carro" for="categoria-carro-a">
-                <strong>Categoria A</strong>
-                <small>Carro popoular</small>
-            </label>
+            <legend>Categoria do carro:</legend>
 
-            <input id="categoria-carro-b" type="radio" name="categoria" value="B">
-            <label class="label-categoria-carro" for="categoria-carro-b">
-                <strong>Categoria B</strong>
-                <small>Carro intermediário</small>
-            </label>
-
-            <input id="categoria-carro-c" type="radio" name="categoria" value="C">
-            <label class="label-categoria-carro" for="categoria-carro-c">
-                <strong>Categoria C</strong>
-                <small>Carro premium</small>
-            </label>
+            <div class="categorias">
+                <input id="carroA" type="radio" name="categoria" value="A">
+                <label class="categoria-carro" for="carroA">
+                    Categoria A
+                    <small>Popular</small>
+                    <img src="/resources/img/Novo_Hyundai_HB20_Edição_Especial-removebg-preview 1.png" alt="">
+                </label>
+    
+                <input id="carroB" type="radio" name="categoria" value="B">
+                <label class="categoria-carro" for="carroB">
+                    Categoria B
+                    <small>Intermediário</small>
+                    <img src="/resources/img/Pulse-2022-destaque-1024x576-1-removebg-preview 2.png" alt="">
+                </label>
+    
+                <input id="carroC" type="radio" name="categoria" value="C">
+                <label class="categoria-carro" for="carroC">
+                    Categoria C
+                    <small>Premium</small>
+                    <img src="/resources/img/Range-Rover-Evoque-SE-2023-7-removebg-preview 1.png" alt="">
+                </label>
+            </div>
 
             <label id="categoria-error" class="error" for="categoria" style="display: none;">Este campo é obrigatório</label>
         </section>
 
         <section id="pagamento">
-            <label for="formaPagamento">Escolha a forma de pagamento:</label>
-            <select id="formaPagamento" name="formaPagamento">
-                <option value="aVista" selected>À vista</option>
-                <option value="parcelado">Parcelado</option>
-            </select>
-            
-            <!-- Select para o número de parcelas (inicialmente oculto) -->
-            <label for="numeroParcelas" id="labelParcelas" style="display: none;">Número de Parcelas:</label>
-            <select id="numeroParcelas" name="numeroParcelas" style="display: none;">
-                <option value="1">1x</option>
-                <option value="2">2x</option>
-                <option value="3">3x</option>
-                <option value="4">4x</option>
-            </select>
-            
-            <label for="formaPagamentoCartao">Crédito ou Débito:</label>
-            <select id="formaPagamentoCartao" name="formaPagamentoCartao">
-                <option value="CARTAO_CREDITO">Crédito</option>
-                <option value="CARTAO_DEBITO">Débito</option>
-            </select>
+            <legend>Pagamento (apenas cartão):</legend>
+            <div class="row">
+                <div class="col-6">
+                    <label for="formaPagamento">Escolha a forma de pagamento:</label>
+                    <select id="formaPagamento" name="formaPagamento">
+                        <option value="aVista" selected>À vista</option>
+                        <option value="parcelado">Parcelado</option>
+                    </select>
+                </div>
+                
+                <div class="col-6">
+                    <!-- Select para o número de parcelas (inicialmente oculto) -->
+                    <label for="numeroParcelas" id="labelParcelas" style="display: none;">Número de Parcelas:</label>
+                    <select id="numeroParcelas" name="numeroParcelas" style="display: none;">
+                        <option value="1">1x</option>
+                        <option value="2">2x</option>
+                        <option value="3">3x</option>
+                        <option value="4">4x</option>
+                    </select>
 
-            <label for="numeroCartao">Número do Cartão:</label>
-            <input type="text" id="numeroCartao" name="numeroCartao">
+                    <label for="formaPagamentoCartao">Crédito ou Débito:</label>
+                    <select id="formaPagamentoCartao" name="formaPagamentoCartao">
+                        <option value="CARTAO_CREDITO">Crédito</option>
+                        <option value="CARTAO_DEBITO">Débito</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <label for="numeroCartao">Número do Cartão:</label>
+                    <input type="text" id="numeroCartao" name="numeroCartao" class="form-control" required>
+                </div>
+                
+                <div class="col-6">
+                    <label for="nomeTitular">Nome do titular:</label>
+                    <input type="text" id="nomeTitular" name="nomeTitular" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <label for="cvvCartao">CVV:</label>
+                    <input type="text" id="cvvCartao" name="cvvCartao" class="form-control" required>
+                </div>
+            </div>
 
-            <label for="cvvCartao">CVV:</label>
-            <input type="text" id="cvvCartao" name="cvvCartao">
         </section>
         
-        <button type="submit" id="botaoPagamento" class="btn btn-secondary">Finalizar pedido</button>
+        <button type="submit" id="botaoPagamento" class="btn btn-primary">Finalizar pedido</button>
     </form>
 
     <!-- Modal selecionar agência -->
@@ -188,7 +235,7 @@
                 <div id="lista-agencias" class="modal-body"></div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" id="btn-selecionar-agencia" class="btn btn-primary" data-bs-dismiss="modal">Selecionar</button>
                 </div>
             </div>
@@ -208,7 +255,7 @@
                 <div id="lista-agendamento" class="modal-body"></div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" id="btn-selecionar-agendamento" class="btn btn-primary"
                         data-bs-dismiss="modal">Agendar</button>
                 </div>

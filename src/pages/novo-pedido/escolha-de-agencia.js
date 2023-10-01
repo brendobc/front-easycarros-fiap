@@ -1,5 +1,6 @@
 import { Agencia } from "../../model/Agencia.js";
 import { agenciasDisponiveis } from "../../service/AgenciaService.js";
+import { validarCampoHiddenComModal } from "./validar-form-novo-pedido.js";
 
 const listaAgencias = document.getElementById('lista-agencias');
 
@@ -34,18 +35,15 @@ function initFuncionalidadesModalEscolhaAgencia() {
           btnAbrirModalSelecaoAgencia = document.querySelector('[data-selecionar="agencia"]');
 
     btnSelecionarAgencia.addEventListener('click', function () {
-        const inputAgenciaSelecionada = document.querySelector('#lista-agencias input:checked');
-        
-        if(!inputAgenciaSelecionada) {
-            return;
-        }
-
-        const inputAgenciaId = document.getElementById('agenciaId');
-        const selecionarAgenciaPlaceholder = document.getElementById('agencia-selecionada-placeholder');
+        const inputAgenciaSelecionada = document.querySelector('#lista-agencias input:checked'),
+              inputAgenciaId = document.getElementById('agenciaId'),
+              labelErroAgencia = document.getElementById('label-erro-agencia'),
+              agenciaPlaceholder = document.getElementById('agencia-selecionada-placeholder');
     
-        inputAgenciaId.value = inputAgenciaSelecionada.value;
+        inputAgenciaId.value = inputAgenciaSelecionada ? inputAgenciaSelecionada.value : null;
+        agenciaPlaceholder.innerText = inputAgenciaSelecionada ? inputAgenciaSelecionada.labels[0].innerText : null;
 
-        selecionarAgenciaPlaceholder.innerText = inputAgenciaSelecionada.labels[0].innerText;
+        validarCampoHiddenComModal(inputAgenciaId, btnAbrirModalSelecaoAgencia, labelErroAgencia);
     });
 
     btnAbrirModalSelecaoAgencia.addEventListener('click', carregarAgenciasDisponíveis);

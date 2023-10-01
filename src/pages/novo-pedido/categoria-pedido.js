@@ -15,15 +15,31 @@ function toggleVisibilidadeCamposDeliveryRetirada() {
     if(isDelivery) {
         sectionAgencia.style.display = 'none';
         sectionAgencia.toggleAttribute('disabled', true);
+
+        for(const input of sectionAgencia.querySelectorAll('input')) {
+            input.toggleAttribute('disabled', true);
+        }
         
         sectionLocalizacao.style.display = null;
         sectionLocalizacao.toggleAttribute('disabled', false);
+
+        for(const input of sectionLocalizacao.querySelectorAll('input')) {
+            input.toggleAttribute('disabled', false);
+        }
     } else {
         sectionAgencia.style.display = null;
         sectionAgencia.toggleAttribute('disabled', false);
 
+        for(const input of sectionAgencia.querySelectorAll('input')) {
+            input.toggleAttribute('disabled', false);
+        }
+
         sectionLocalizacao.style.display = 'none';
         sectionLocalizacao.toggleAttribute('disabled', true);
+
+        for(const input of sectionLocalizacao.querySelectorAll('input')) {
+            input.toggleAttribute('disabled', true);
+        }
     }
 
     inputAgendamentoId.value = null;
