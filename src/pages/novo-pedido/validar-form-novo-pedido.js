@@ -2,12 +2,20 @@ import { Pedido } from "../../model/Pedido.js";
 import { criarPedido } from "../../service/novoPedidoService.js";
 import { salvarPedido } from "../../service/storage.js";
 
-function validarCampoHiddenComModal(input, btnAbrirModal) {
+const btnSelecionarAgencia = document.querySelector('[data-selecionar="agencia"]'),
+      inputAgenciaSelecionada = document.getElementById('agenciaId'),
+      btnSelecionarAgendamento = document.querySelector('[data-selecionar="agendamento"]'),
+      inputAgendamentoSelecionado = document.getElementById('agendamento'),
+      selectCategoriaPedido = document.getElementById('select-categoria-pedido'),
+      formNovoPedido = document.getElementById('form-novo-pedido');
+
+function validarCampoHiddenComModal(input, btnAbrirModal, force = false) {
     if(
+        force ||
         !input ||
-        input.value &&
-        !btnAbrirModal.classList.remove('error')
+        input.value
     ) {
+        btnAbrirModal.classList.remove('error');
         return true;
     }
 
@@ -15,30 +23,48 @@ function validarCampoHiddenComModal(input, btnAbrirModal) {
     return false;
 }
 
-function inserirValidadorFormNovoPedido() {
-    const btnSelecionarAgencia = document.querySelector('[data-selecionar="agencia"]'),
-          inputAgenciaSelecionada = document.getElementById('agenciaId'),
-          btnSelecionarAgendamento = document.querySelector('[data-selecionar="agendamento"]'),
-          inputAgendamentoSelecionado = document.getElementById('agendamento'),
-          selectCategoriaPedido = document.getElementById('select-categoria-pedido');
+function validarCategoriaCarro(form, force = false) {
+    const radiosCategoria = form.querySelectorAll('[name="categoria"]'),
+          labelCategoriaError = form.querySelector('#categoria-error');
 
-    $('#form-novo-pedido').validate({
+    if(
+        force ||
+        Array.prototype.filter.call(radiosCategoria, (radio) => {
+            radio.classList.remove('error')
+            return radio.checked;
+        }).length === 1
+    ) {
+        labelCategoriaError.style.display = 'none';
+        return true;
+    }
+
+    Array.prototype.find.call(radiosCategoria, (radio) => radio.classList.add('error'));
+    labelCategoriaError.style.display = 'block';
+    labelCategoriaError.innerText = 'É preciso selecionar ao menos uma categoria';
+    return false;
+}
+
+function validarCampos(force = false) {
+    return [
+        selectCategoriaPedido.value === Pedido.Categoria.DELIVERY ||
+            validarCampoHiddenComModal(inputAgenciaSelecionada, btnSelecionarAgencia, force),
+        validarCampoHiddenComModal(inputAgendamentoSelecionado, btnSelecionarAgendamento, force),
+        validarCategoriaCarro(formNovoPedido, force)
+    ]
+    .includes(false);
+}
+
+function inserirValidadorFormNovoPedido() {
+    $(formNovoPedido).validate({
         ignore: ['hidden'],
-        submitHandler: function(form, e) {
+        submitHandler: function(_form, e) {
             e.preventDefault();
 
-            if(
-                [
-                    selectCategoriaPedido.value === Pedido.Categoria.DELIVERY ||
-                        validarCampoHiddenComModal(inputAgenciaSelecionada, btnSelecionarAgencia),
-                    validarCampoHiddenComModal(inputAgendamentoSelecionado, btnSelecionarAgendamento)
-                ]
-                .includes(false)
-            ) {
+            if(validarCampos()) {
                 return;
             }
 
-            salvarPedido(criarPedido(form));
+            salvarPedido(criarPedido(formNovoPedido));
             window.location.href = './acompanhamento.html';
         }
     });
@@ -48,4 +74,4 @@ function initValidacaoNovoPedido() {
     inserirValidadorFormNovoPedido();
 }
 
-export { initValidacaoNovoPedido }
+export { initValidacaoNovoPedido, validarCampos }

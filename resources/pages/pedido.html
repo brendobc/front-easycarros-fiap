@@ -122,20 +122,25 @@
         </section>
 
         <section id="section-categoria-carro">
-            <label>
-                <input type="radio" name="categoria" value="A" required>
-                Categoria A
+            <input id="categoria-carro-a" type="radio" name="categoria" value="A">
+            <label class="label-categoria-carro" for="categoria-carro-a">
+                <strong>Categoria A</strong>
+                <small>Carro popoular</small>
             </label>
 
-            <label>
-                <input type="radio" name="categoria" value="B" required>
-                Categoria B
+            <input id="categoria-carro-b" type="radio" name="categoria" value="B">
+            <label class="label-categoria-carro" for="categoria-carro-b">
+                <strong>Categoria B</strong>
+                <small>Carro intermediário</small>
             </label>
 
-            <label>
-                <input type="radio" name="categoria" value="C" required>
-                Categoria C
+            <input id="categoria-carro-c" type="radio" name="categoria" value="C">
+            <label class="label-categoria-carro" for="categoria-carro-c">
+                <strong>Categoria C</strong>
+                <small>Carro premium</small>
             </label>
+
+            <label id="categoria-error" class="error" for="categoria" style="display: none;">Este campo é obrigatório</label>
         </section>
 
         <section id="pagamento">
