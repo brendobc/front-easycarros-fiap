@@ -1,28 +1,24 @@
-.body{
-    background-image: url('../img/production_id_4608279\ \(2160p\).mp4');
+body {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
+	background-image: url('https://brendobc.github.io/front-easycarros-fiap/resources/img/road.gif');
 }
 
-.bg_video{
+.bg_video {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    max-width: 1000px;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     z-index: -1000;
-    background: url(../img/production_id_4608279\ \(2160p\).mp4) no-repeat;
+    background: url('https://brendobc.github.io/front-easycarros-fiap/resources/img/road.gif') no-repeat;
     background-size: cover;
     filter: blur(1px);
     filter: brightness(65%);
 }
 
-.header{
+.header {
     margin-top: 50px;
     height: 45px;
     display: flex;
@@ -31,23 +27,23 @@
     align-items: center;
 }
 
-.logo{
+.logo {
     cursor: pointer;
     margin-left: 15px;
 }
 
-.img_usuario{
+.img_usuario {
     width: 47.826px;
     height: 50px;
-    border-radius: 7638465058078458000px;
+    border-radius: 50%;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.expandir{
+.expandir {
     cursor: pointer;
 }
 
-.img_boas_vindas{
+.img_boas_vindas {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -57,10 +53,10 @@
 
 .img_usuario:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
-  } 
+    transition: transform 0.5s;
+} 
 
-.texto_ola{
+.texto_ola {
     margin-left: 5px;
     text-decoration: none;
     color:  rgb(125, 243, 229);
@@ -75,10 +71,10 @@
 
 .texto_ola:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
-  } 
+    transition: transform 0.5s;
+}
 
-.btn_acp_pedido{
+.btn_acp_pedido {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -93,8 +89,8 @@
 
 .btn_acp_pedido:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
-  } 
+    transition: transform 0.5s;
+} 
 
 .icon_pedido{
     background-color: none;
@@ -142,14 +138,14 @@
         to top,
         rgb(125, 243, 229),
         rgb(183, 238, 232, 1) 70.71%
-      ),
-      linear-gradient(to bottom, rgb(88, 99, 112), rgb(55, 81, 118) 70.71%),
-      linear-gradient(
+    ),
+    linear-gradient(to bottom, rgb(88, 99, 112), rgb(55, 81, 118) 70.71%),
+    linear-gradient(
         to right,
         rgb(36, 51, 71),
         rgb(64, 73, 87) 90.71%
-      ),
-      linear-gradient(to left, rgb(156, 164, 175), rgb(164, 196, 242) 90.71%);
+    ),
+    linear-gradient(to left, rgb(156, 164, 175), rgb(164, 196, 242) 90.71%);
     height: 200px;
     width: 200px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.100);
@@ -158,13 +154,13 @@
 
 .delivery:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
-  } 
+    transition: transform 0.5s;
+}
 
-  .novo_pedido:hover {
+.novo_pedido:hover {
     transform: scale(1.1);
-    transition: all 0.5s;
-  } 
+    transition: transform 0.5s;
+}
 
 .texto_btn{
     text-decoration: none;
@@ -189,32 +185,190 @@ label.error {
 
 [data-selecionar].error {
     color: #ff3333;
+    border-color: #ff3333;
 }
 
-#section-categoria-carro {
+section {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+#form-novo-pedido {
+	width: 85%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	box-shadow: 1px ,1px rgba(0, 0, 0, .212);
+    margin: 50px auto;
+    padding: 48px;
+}
+
+.form_header{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+.form_header h1::after {
+	content: '';
+	display: block;
+	width: 10rem;
+	height: 0.3rem;
+	background-color: #324156;
+	margin: 0 auto;
+	position: absolute;
+	border-radius: 10px;
+}
+
+.pedido {
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.wrapper-select-categoria-pedido {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#select-categoria-pedido {
+	background-color: #324156;
+	color: #f5f5f5;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 8px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+    margin-bottom: 24px;
+}
+
+#section-localizacao {
+    margin-bottom: 16px;
+}
+
+.row {
+    margin-bottom: 12px;
+}
+
+#pagamento select {
+    display: block;
+    width: 100%;
+    height: 40px;
+	font-size: 16px;
+	padding: 8px 16px;
+	border-radius: 5px;
+    border: 1px #dee2e6 solid;
+	cursor: pointer;
+}
+
+#section-categoria-carro .categorias {
     display: flex;
     justify-content: center;
     gap: 16px;
 }
 
-.label-categoria-carro {
-    padding: 12px;
-    width: 200px;
-    border: 1px grey solid;
-    border-radius: 12px;
-    cursor: pointer;
+.btn_agendamento{
+	display: flex;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	border: none;
+	background-color: #324156;
+	color: #f5f5f5;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0.4rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.label-categoria-carro small {
-    color: #686868;
+.btn_agendamento:hover {
+    transform: scale(1.1);
+    transition: transform background-color 0.5s;
+    background-color: rgba(183, 238, 232, 1);
+}
+
+.categoria-carro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 280px;
+	height: 130px;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	color: #324156;
+	border: 1px #324156 solid;
+	padding: 10px;
+	cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+
+.categoria-carro small {
     display: block;
-}
-
-input[name="categoria"]:checked + label {
-    border-color: #324156;
-    background-color: #d4ffff;
+    font-size: 14px;
+	font-weight: 400;
 }
 
 input[name="categoria"] {
-    display: none;
+	display: none;
+}
+
+input[name="categoria"]:checked + label, input[name="categoria"]:hover + label  {
+	background-color: #324156;
+	color: #f5f5f5;
+}
+
+.modal-content {
+	border-radius: 4px;
+	position: relative;
+	width: 500px;
+	max-width: 90%;
+	background: #fff;
+	padding: 1em 2em;
+}
+
+.btn-outline { 
+    padding: 8px 20px;
+	text-decoration: none;
+	border: 1px #324156 solid;
+	background-color: transparent;
+	color: #324156;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'ubuntu', sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.btn-outline:hover, .btn-outline:active {
+	background-color: #324156 !important;
+	color: #f5f5f5 !important;
+    border-color: #324156 !important;
+}
+
+.btn-primary {
+    padding: 8px 20px;
+	text-decoration: none;
+	border: none;
+	background-color: #324156;
+	color: #f5f5f5;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'ubuntu', sans-serif;
+}
+
+.btn-primary:hover, .btn-primary:active {
+	background-color: #324156 !important;
+	color: #f5f5f5 !important;
+}
+
+button[type="button"] {
+    display: block;
 }
